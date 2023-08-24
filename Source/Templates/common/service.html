@@ -1,0 +1,31 @@
+{% extends 'common/layout.html' %}
+{% block title %} Service {% endblock %}
+{% block content %}
+<div class="container-fluid py-5">
+    <div class="container pt-5 pb-3">
+        <h1 class="display-4 text-uppercase text-center mb-5">Dịch vụ của chúng tôi</h1>
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Tên hình thức</th>
+                    <th scope="col">Ưu đãi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for i in hinhthucthue_list %}
+                  <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{i.ten_hinhthuc}}</td>
+                    <td>{{i.uudai}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <h6>Ưu đãi này được tính bằng cách lấy giá thuê mỗi ngày của xe nhân với ưu đãi</h6>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

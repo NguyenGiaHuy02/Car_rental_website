@@ -1,0 +1,27 @@
+{% extends 'common/layout.html' %}
+{% load humanize %}
+{% block title %} Danh sách xe {% endblock title %}
+{% block content %}
+<div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <h1 class="display-4 text-uppercase text-center mb-5">Danh sách xe</h1>
+            <div class="row">
+                {% for i in xe_list %}
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="rent-item mb-4">
+                        <img class="img-fluid mb-4 image-car" src="{{i.hinhanh_preview}}" alt="">
+                        <h4 class="text-uppercase mb-4">{{i.ten_xe}}</h4>
+                        <a class="btn btn-primary px-3" href="/detail/{{i.id_xe}}">{{i.giatien|intcomma}} USD/ngày</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Rent A Car End -->
+
+
+    
+
+
+{% endblock %}

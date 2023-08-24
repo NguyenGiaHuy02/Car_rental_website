@@ -1,0 +1,118 @@
+<html>
+{%include 'common/head.html'%}
+<body>
+    <div class="card">
+        <div class="card-header bg-black"></div>
+        <div class="card-body">
+      
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-12">
+                <h1 class="text-uppercase text-primary mb-1">Royal Cars</h1>
+              </div>
+            </div>
+      
+      
+            <div class="row">
+              <div class="col-xl-12">
+      
+                <ul class="list-unstyled float-end">
+                  <li>215 Điện Biên Phủ P15 Q Bình Thạnh , TP Hồ Chí Minh</li>
+                  <li>0818115119</li>
+                  <li>huyng1906003@student.hiu.vn</li>
+                </ul>
+              </div>
+            </div>
+              <h3 class="text-uppercase text-center mt-3" style="font-size: 40px;">Hợp đồng</h3>
+              <br/>
+      
+            <div class="row mx-3">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Danh mục</th>
+                    <th scope="col">Thông tin</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Tên hợp đồng</td>
+                    <td>{{hopdong.ten_hopdong}}</td>
+                  </tr>
+                  <tr>
+                    <td>Tên khách hàng</td> 
+                    <td>{{nguoithue.ten_nguoithue}}</td>
+                  </tr>
+                  <tr>
+                    <td>Tên xe</td>
+                    <td>{{thongtinxe.ten_xe}}</td>
+                  </tr>
+                  <tr>
+                    <td>Giá thuê xe 1 ngày</td>
+                    <td>{{thongtinxe.giatien}} $/ngày</td>
+                  </tr>
+                  <tr>
+                    <td>Hình thức thuê</td>
+                    <td>{{hinhthucthue.ten_hinhthuc}}</td>
+                  </tr>
+                  <tr>
+                    <td>Ưu đãi</td>
+                    <td>{{hinhthucthue.uudai}}</td>
+                  </tr>
+                  <tr>
+                    <td>Ngày bắt đầu</td>
+                    <td>{{hopdong.ngaybatdau}}</td>
+                  </tr>
+                  <tr>
+                    <td>Ngày kết thúc</td>
+                    <td>{{hopdong.ngayketthuc}}</td>
+                  </tr>
+                  <tr>
+                    <td>Số ngày thuê</td>
+                    <td>{{hopdong.songaythue}}</td>
+                  </tr>
+                  <tr>
+                    <td>Tài xế</td>
+                    <td>{{taixe.ten_taixe}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              {% if ptthanhtoan == 'CK' %}
+                  <a>Vui lòng chuyển khoản vào số tài khoản : ********** để hoàn thành hợp đồng</a>
+              {% elif  ptthanhtoan == 'TT' %}
+                  <a>Vui lòng đến địa chỉ 215 Điện Biên Phủ P15 Quận Bình Thạnh TP HCM để hoàn thành thủ tục và thanh toán</a>
+              {% else %}
+                  <a href="http://127.0.0.1:8000/payment/">Vui lòng chọn vào đường dẫn để thanh toán</a>
+              {% endif %}
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-xl-10" style="margin-left:10px">
+                    <p class="float-right"
+                      style="font-size: 18px; color: red; font-weight: 400;font-family: Arial, Helvetica, sans-serif;">
+                      Tiền hoa hồng
+                      <span>{{hopdong.tienhoahong}} $</span></p>
+                  </div>
+              <div class="col-xl-10" style="margin-left:10px">
+                <p class="float-right"
+                  style="font-size: 30px; color: red; font-weight: 400;font-family: Arial, Helvetica, sans-serif;">
+                  Total:
+                  <span>${{hopdong.tongtien}}</span></p>
+              </div>
+      
+            </div>
+      
+            <div class="row mt-2 mb-5">
+              <p class="fw-bold">{{ngaylaphoadon}}</p>
+            </div>
+      
+          </div>
+      
+      
+      
+        </div>
+        <div class="card-footer bg-black"></div>
+      </div>
+        
+</body>
+</html>

@@ -1,0 +1,13 @@
+{% extends 'common/layout.html' %}
+{% load humanize %}
+{% block title %} Chi tiết xe {% endblock title %}
+{% block content %}
+
+<!-- Replace "test" with your own sandbox Business account app client ID -->
+<div class="container">
+    <h3 style="text-align: center;">Chọn vào nút Paypal để thanh toán </h3>
+    <div class="row justify-content-center">
+        {{form.render}}
+    </div>
+</div>
+{% endblock %}

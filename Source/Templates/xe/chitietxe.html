@@ -1,0 +1,88 @@
+{% extends 'common/layout.html' %}
+{% load humanize %}
+{% block title %} Chi tiết xe {% endblock title %}
+{% block content %}
+<!-- Page Header Start -->
+<div class="container-fluid page-header">
+    <h1 class="display-3 text-uppercase text-white mb-3">Thông tin chi tiết xe</h1>
+    <div class="d-inline-flex text-white">
+        <h6 class="text-uppercase m-0"><a class="text-white" href="/">Home</a></h6>
+        <h6 class="text-body m-0 px-3">/</h6>
+        <h6 class="text-uppercase text-body m-0">Thông tin xe</h6>
+    </div>
+</div>
+<!-- Page Header Start -->
+
+
+<!-- Detail Start -->
+<div class="container-fluid pt-5">
+    <div class="container pt-5 pb-3">
+        <h1 class="display-4 text-uppercase mb-5">{{chitietxe.ten_xe}}</h1>
+        <div class="row align-items-center pb-2">
+            <div class="col-lg-6 mb-4">
+                <img class="img-fluid" src="{{chitietxe.hinhanh_preview}}" alt="">
+            </div>
+            <div class="col-lg-6 mb-4">
+                <h3 class="text-uppercase text-primary mb-4">Tình trạng :  
+                    {% if chitietxe.trangthai == 1 %}
+                            Sẵn sàng
+                        {% else %}
+                            Đang được thuê
+                        {% endif %}
+                </h3>
+                <h4 class="mb-2">{{chitietxe.giatien|intcomma}} USD/ngày</h4>
+                <div class="d-flex mb-3">
+                    <a {%if chitietxe.trangthai == 1 %}class="btn btn-primary px-3" {% else %} class="btn btn-light" style="pointer-events: none" {% endif %}href="/thuexe/{{chitietxe.id_xe}}">
+                        Thuê xe
+                    </a>
+                </div>
+                <p>{{chitietxe.mieuta}}</p>
+                <div class="d-flex pt-1">
+                </div>
+            </div>
+        </div>
+        <div class="row mt-n3 mt-lg-0 pb-4">
+            <div class="col-md-3 col-6 mb-2">
+                <i class="fa fa-car text-primary mr-2"></i>
+                <span>Model: {{chitietmodel.ten_model}}</span>
+            </div>
+            <div class="col-md-3 col-6 mb-2">
+                <i class="fa fa-cogs text-primary mr-2"></i>
+                <span>Số chỗ ngồi : {{chitietmodel.sochongoi}}</span>
+            </div>
+            <div class="col-md-3 col-6 mb-2">
+                <i class="fa fa-cogs text-primary mr-2"></i>
+                <span>{% if chitietxe.sacdienthoai == 1 %}
+                            Sạc điện thoại :  Có
+                        {% else %}
+                            Sạc điện thoại : Không
+                        {% endif %}
+                </span>
+            </div>
+            <div class="col-md-3 col-6 mb-2">
+                <i class="fa fa-eye text-primary mr-2"></i>
+                <span>Điều hòa : {{chitietxe.dieuhoa}}</span>
+            </div>
+            <div class="col-md-3 col-6 mb-2">
+                <i class="fa fa-cogs text-primary mr-2"></i>
+                <span>Hộp số : {{chitietxe.hopso}}</span>
+            </div>
+            <div class="col-md-3 col-6 mb-2">
+                <i class="fa fa-road text-primary mr-2"></i>
+                <span>Nhiên liệu : {{chitietxe.nhienlieu}}</span>
+            </div>
+            <div class="col-md-3 col-6 mb-2">
+                <i class="fa fa-eye text-primary mr-2"></i>
+                <span>{% if chitietxe.cameralui == 1 %}
+                    Camera lùi :  Có
+                {% else %}
+                    Camera lùi : Không
+                {% endif %}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Detail End -->
+
+
+{% endblock %}
